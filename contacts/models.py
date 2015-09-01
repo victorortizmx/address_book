@@ -1,21 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 from . import choices
 
 class Contact(models.Model):
-  name         =  models.CharField(max_length=50)
-  last_name    =  models.CharField(max_length=100, null=True, blank=True)
-  email        =  models.EmailField(max_length=100)
-  phone_number =  models.CharField(max_length=20)
-  type_number  =  models.PositiveIntegerField(choices=choices.TYPE_NUMBER_CHOICES)
-  address      =  models.CharField(max_length=255)
-  person       =  models.ForeignKey('Person', null=True)
-  groups       =  models.ManyToManyField('groups.Group')
+    name = models.CharField('Nombre', max_length=255)
+    last_name = models.CharField('Apellidos', max_length=255, blank=True, null=True)
+    address = models.CharField('Direccion', max_length=255, blank=True, null=True)
+    email = models.EmailField('Correo', blank=True, null=True)
+    type_number = models.IntegerField('Tipo', choices=choices.TYPE_NUMBER_CHOICES)
+    number = models.IntegerField('Numero')
+    user = models.ForeignKey(User)
 
-  def __unicode__(self):
-    return self.name
-
-class Person(models.Model):
-  name = models.CharField(max_length=50)
-
-  def __unicode__(self):
-    return self.name
+    def __unicode__(self): #__str__ python 3
+        return "{0} {1}".format(self.name, self.last_name)

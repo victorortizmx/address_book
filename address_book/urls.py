@@ -16,6 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from contacts.views import list_contacts, add_contact, login_user, edit_contact, log_out, delete_contact
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', list_contacts, name='list_contacts'),
+    url(r'^login_user/$', login_user, name='login_user'),
+    url(r'^log_out/$', log_out, name='log_out'),
+    url(r'^edit_contact/(?P<id_contact>\d{1,})/$', edit_contact, name='edit_contact'),
+    url(r'^add_contact/$', add_contact, name="add_contact"),
+    url(r'^delete_contact/(?P<id_contact>\d{1,})/$', delete_contact, name="delete_contact")
+
 ]

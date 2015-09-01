@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add contact</title>
+</head>
+<body>
+  <form method="post">
+  {% csrf_token %}
+  {{ contact_form.as_p }}
+  <input type="submit" value="save">
+  </form>
+  <a href="{% url 'list_contacts' %}"><-- Return</a>
+</body>
+</html>
