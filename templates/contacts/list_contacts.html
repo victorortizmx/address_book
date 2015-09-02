@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>List Contacts</title>
-</head>
-<body>
-    <ul>
+{% extends 'bases/bases.html' %}
+{% block content %}
+  <div class="container">
+    <ul class="list-group">
   {% for contacts in list_contacts %}
-    <li>
+    <li class="list-group-item">
       {{ contacts.name }} {{ contacts.last_name }}
       <a href="{% url 'edit_contact' id_contact=contacts.id %}">edit</a>
       <a href="{% url 'delete_contact' id_contact=contacts.id %}">delete</a>
@@ -16,5 +12,5 @@
   </ul>
   <a href="{% url 'add_contact' %}">Add contact</a>
   <a href="{% url 'log_out' %}">log out</a>
-</body>
-</html>
+  </div>
+{% endblock %}

@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Add contact</title>
-</head>
-<body>
+{% extends 'bases/bases.html' %}
+{% block content %}
   <form method="post">
   {% csrf_token %}
   {{ contact_form.as_p }}
@@ -13,3 +8,4 @@
   <a href="{% url 'list_contacts' %}"><-- Return</a>
 </body>
 </html>
+{% endblock %}
