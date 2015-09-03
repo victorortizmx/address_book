@@ -5,12 +5,12 @@
   {% for contacts in list_contacts %}
     <li class="list-group-item">
       {{ contacts.name }} {{ contacts.last_name }}
-      <a href="{% url 'edit_contact' id_contact=contacts.id %}">edit</a>
-      <a href="{% url 'delete_contact' id_contact=contacts.id %}">delete</a>
+      <a href="{% url 'contacts:edit_contact' id_contact=contacts.id %}">edit</a>
+      <a href="{% url 'contacts:delete_contact' id_contact=contacts.id %}">delete</a>
     </li>
   {% endfor %}
   </ul>
-  <a href="{% url 'add_contact' %}">Add contact</a>
+  <a href="{% url 'contacts:add_contact' %}">Add contact</a>
   <a href="{% url 'log_out' %}">log out</a>
   </div>
 {% endblock %}

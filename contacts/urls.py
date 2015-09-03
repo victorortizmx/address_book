@@ -1,8 +1,8 @@
 from django.conf.urls import url
-from contacts.views import edit_contact, add_contact, delete_contact
+from contacts.views import EditContact, AddContact, DeleteContact
 
 urlpatterns = [
-    url(r'^edit_contact/(?P<id_contact>\d{1,})/$', edit_contact, name='edit_contact'),
-    url(r'^add_contact/$', add_contact, name="add_contact"),
-    url(r'^delete_contact/(?P<id_contact>\d{1,})/$', delete_contact, name="delete_contact"),
+    url(r'^edit_contact/(?P<id_contact>\d{1,})/$', EditContact.as_view(), name='edit_contact'),
+    url(r'^add_contact/$', AddContact.as_view(), name="add_contact"),
+    url(r'^delete_contact/(?P<id_contact>\d{1,})/$', DeleteContact.as_view(), name="delete_contact"),
 ]

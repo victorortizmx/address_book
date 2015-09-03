@@ -2,7 +2,7 @@
 {% block content %}
   <form method="post">
   {% csrf_token %}
-  {{ contact_form.as_p }}
+  {{ form.as_p }}
   <input type="submit" value="save">
   </form>
   <a href="{% url 'list_contacts' %}"><-- Return</a>
